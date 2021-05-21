@@ -1,17 +1,19 @@
-const express = require('express');
+require('./fs');
 
-// Need require dotenv to read variables from .env files. That's basic
-require('dotenv').config();
+// const express = require('express');
 
-// Declare app
-const app = express();
+// // Need require dotenv to read variables from .env files. That's basic
+// require('dotenv').config();
 
-app.get('/', (req, res) => {
-  res.send('Hello node and express');
-});
+// // Declare app
+// const app = express();
 
-app.listen(process.env.PORT, () => {
-  console.log(`app is running at http://localhost:${process.env.PORT}`);
-});
+// app.get('/', (req, res) => {
+//   res.send('Hello node and express');
+// });
 
-// console.log('app is ===>', app);
+// app.listen(process.env.PORT, () => {
+//   console.log(`app is running at http://localhost:${process.env.PORT}`);
+// });
+
+// // console.log('app is ===>', app);

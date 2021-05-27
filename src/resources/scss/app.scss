@@ -1,0 +1,11 @@
+@import 'variables.scss';
+@import 'header.scss';
+
+h1 {
+  color: $lila;
+  font-size: xx-large;
+}
+li {
+  list-style: none;
+  color: black;
+}

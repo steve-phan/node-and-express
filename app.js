@@ -9,6 +9,9 @@ require('dotenv').config();
 // Declare app
 const app = express();
 
+app.use(express.static(path.join(__dirname, 'src', 'assets')));
+app.use(express.static(path.join(__dirname, 'src', 'resources')));
+// console.log(path.join(__dirname, 'assets'));
 // Template Engine
 // const hbs = handlebars.create({
 //   extname: '.teddy',

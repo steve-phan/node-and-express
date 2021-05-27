@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  background-color: red; }
+
+.wrap-header {
+  color: deeppink; }
+
+h1 {
+  color: red;
+  font-size: xx-large; }
+
+li {
+  list-style: none;
+  color: black; }

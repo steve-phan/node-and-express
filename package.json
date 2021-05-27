@@ -4,7 +4,7 @@
   "description": "",
   "main": "test.js",
   "scripts": {
-    "start": "nodemon node app.js",
+    "start": "nodemon  --inspect app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +20,7 @@
   "homepage": "https://github.com/vUnAmp/node-and-express#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "express-handlebars": "^5.3.2",
     "nodemon": "^2.0.7"
   },
   "devDependencies": {

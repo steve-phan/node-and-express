@@ -1,20 +1,32 @@
-// require('./fs');
-require('./http');
+const express = require('express');
+const path = require('path');
 
-// const express = require('express');
+const handlebars = require('express-handlebars');
 
-// // Need require dotenv to read variables from .env files. That's basic
-// require('dotenv').config();
+// Need require dotenv to read variables from .env files. That's basic
+require('dotenv').config();
 
-// // Declare app
-// const app = express();
+// Declare app
+const app = express();
 
-// app.get('/', (req, res) => {
-//   res.send('Hello node and express');
-// });
+// Template Engine
+const hbs = handlebars.create({
+  extname: '.handlebars',
+});
 
-// app.listen(process.env.PORT, () => {
-//   console.log(`app is running at http://localhost:${process.env.PORT}`);
-// });
+// app.engine();
+app.engine('handlebars', hbs.engine);
 
-// // console.log('app is ===>', app);
+app.set('view engine', 'handlebars');
+app.set('views', path.join(__dirname, 'src', 'resources', 'views'));
+const x = path.join(__dirname, 'resources', 'views');
+console.log(x);
+app.get('/', (req, res) => {
+  res.render('home');
+});
+
+app.listen(process.env.PORT, () => {
+  console.log(`app is running at http://localhost:${process.env.PORT}`);
+});
+
+// console.log('app is ===>', app);

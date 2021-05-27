@@ -10,19 +10,21 @@ require('dotenv').config();
 const app = express();
 
 // Template Engine
-const hbs = handlebars.create({
-  extname: '.handlebars',
-});
+// const hbs = handlebars.create({
+//   extname: '.teddy',
+// });
 
 // app.engine();
-app.engine('handlebars', hbs.engine);
+// app.engine('teddy', hbs.engine); //*  Tell App using handblebars */
 
-app.set('view engine', 'handlebars');
+app.engine('hbs', handlebars({ extname: '.hbs' }));
+
+app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'src', 'resources', 'views'));
-const x = path.join(__dirname, 'resources', 'views');
-console.log(x);
+
 app.get('/', (req, res) => {
   res.render('home');
+  //   res.redirect('https://facebook.com');
 });
 
 app.listen(process.env.PORT, () => {

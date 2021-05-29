@@ -25,6 +25,14 @@ app.engine('hbs', handlebars({ extname: '.hbs' }));
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'src', 'resources', 'views'));
 
+app.use('/', (req, res, next) => {
+  console.log('this is middleware1');
+  next();
+});
+app.use('/', (req, res, next) => {
+  console.log('this is middleware2');
+  next();
+});
 app.get('/', (req, res) => {
   res.render('home');
   //   res.redirect('https://facebook.com');

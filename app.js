@@ -5,6 +5,10 @@ const axios = require('axios');
 const handlebars = require('express-handlebars');
 const route = require('./src/routes');
 
+//Mongodb
+const db = require('./src/config/db');
+db.connect();
+
 // Need require dotenv to read variables from .env files. That's basic
 require('dotenv').config();
 
@@ -53,20 +57,21 @@ app.post('/login', (req, res) => {
   res.render('login');
 });
 
-const url =
-  'https://od-api.oxforddictionaries.com/api/v2/entries/en-us/reading';
-axios
-  .get(url, {
-    headers: {
-      app_id: '',
-      app_key: '',
-    },
-  })
-  .then((data) => console.log(data))
-  .catch((err) => console.log(err));
+// const url =
+//   'https://od-api.oxforddictionaries.com/api/v2/entries/en-us/reading';
+// axios
+//   .get(url, {
+//     headers: {
+//       app_id: '',
+//       app_key: '',
+//     },
+//   })
+//   .then((data) => console.log(data))
+//   .catch((err) => console.log(err));
 
 app.listen(process.env.PORT, () => {
   console.log(`app is running at http://localhost:${process.env.PORT}`);
 });
 
 // console.log('app is ===>', app);
+// mongodb+srv://vietappData:<password>@cluster0.ivtnh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority

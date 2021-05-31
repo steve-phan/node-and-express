@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 
 const handlebars = require('express-handlebars');
+const route = require('./src/routes');
 
 // Need require dotenv to read variables from .env files. That's basic
 require('dotenv').config();
@@ -36,10 +37,11 @@ app.set('views', path.join(__dirname, 'src', 'resources', 'views'));
 //   console.log('this is middleware2');
 //   next();
 // });
-app.get('/', (req, res) => {
-  res.render('home');
-  //   res.redirect('https://facebook.com');
-});
+// app.get('/', (req, res) => {
+//   res.render('home');
+//   //   res.redirect('https://facebook.com');
+// });
+route(app);
 
 app.get('/login', (req, res) => {
   res.render('login');

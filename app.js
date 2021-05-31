@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const axios = require('axios');
 
 const handlebars = require('express-handlebars');
 const route = require('./src/routes');
@@ -51,6 +52,18 @@ app.post('/login', (req, res) => {
   console.log(req.body.email);
   res.render('login');
 });
+
+const url =
+  'https://od-api.oxforddictionaries.com/api/v2/entries/en-us/reading';
+axios
+  .get(url, {
+    headers: {
+      app_id: '',
+      app_key: '',
+    },
+  })
+  .then((data) => console.log(data))
+  .catch((err) => console.log(err));
 
 app.listen(process.env.PORT, () => {
   console.log(`app is running at http://localhost:${process.env.PORT}`);

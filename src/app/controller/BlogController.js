@@ -6,8 +6,10 @@ class BlogController {
       if (err) {
         res.send('Error');
       } else {
-        console.log(blogs);
-        res.json(blogs);
+        // console.log(blogs);
+        res.render('blog', {
+          blogs: blogs.map((obj) => obj.toObject()),
+        });
       }
     });
     // res.json({

@@ -5,6 +5,9 @@ const axios = require('axios');
 const handlebars = require('express-handlebars');
 const route = require('./src/routes');
 
+// Local network IPv4
+const IP = require('./src/utils');
+
 //Mongodb
 const db = require('./src/config/db');
 db.connect();
@@ -69,8 +72,11 @@ app.post('/login', (req, res) => {
 //   .then((data) => console.log(data))
 //   .catch((err) => console.log(err));
 
-app.listen(process.env.PORT, () => {
-  console.log(`app is running at http://localhost:${process.env.PORT}`);
+app.listen(process.env.PORT, IP, () => {
+  console.log(`app is running at \n
+   http://localhost:${process.env.PORT} \n
+   or LAN http://${IP}:${process.env.PORT}
+ `);
 });
 
 // console.log('app is ===>', app);
